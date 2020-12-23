@@ -1,4 +1,4 @@
-const BASE_ROUTE = `http://localhost:3001`
+const BASE_ROUTE = `https://cashingames-mock.heroku.app`
 const USER_ROUTE = `${BASE_ROUTE}/user`
 
 const API_MAP = {
