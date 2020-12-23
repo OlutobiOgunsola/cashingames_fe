@@ -1,4 +1,4 @@
-const BASE_ROUTE = `https://cashingames-mock.heroku.app`
+const BASE_ROUTE = `https://cashingames-mock.herokuapp.com`
 const USER_ROUTE = `${BASE_ROUTE}/user`
 
 const API_MAP = {
