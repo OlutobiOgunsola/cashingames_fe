@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders without crashing 1`] = `
+<styled.footer>
+  <img
+    alt="a mascot"
+    id="toodles"
+    src="toodles.png"
+  />
+  <header
+    id="text"
+  >
+    <h5
+      id="header"
+    >
+      How To Win
+    </h5>
+    <p>
+      Every question has a weight W. The weight varies for each plan. To win a game in any plan, a player must answer at least 8 questions correctly.
+    </p>
+  </header>
+  <span
+    id="get-help"
+    labeled-by="help-link"
+    role="button"
+  >
+    <a
+      href="https://cashingames.com"
+      id="help-link"
+    >
+      Get assistance
+      <img
+        alt="a long arrow"
+        id="long-arrow"
+        src="LongArrow.svg"
+      />
+    </a>
+  </span>
+</styled.footer>
+`;

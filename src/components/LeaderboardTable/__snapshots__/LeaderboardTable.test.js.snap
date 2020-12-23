@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Leaderboard component renders without crashing 1`] = `
+<LeaderboardTable
+  data={Array []}
+  headers={Array []}
+>
+  <TableItem
+    data={Array []}
+    headers={
+      Array [
+        "POSITION",
+        "NAME",
+        "POINT",
+      ]
+    }
+  >
+    <styled.div
+      id="table-container"
+    >
+      <div
+        className="sc-bdfBwQ eA-dDSP"
+        id="table-container"
+      >
+        <ForwardRef
+          hover={true}
+        >
+          <table
+            className="table table-hover"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="table-header"
+                  key="0"
+                >
+                  POSITION
+                </th>
+                <th
+                  className="table-header"
+                  key="1"
+                >
+                  NAME
+                </th>
+                <th
+                  className="table-header"
+                  key="2"
+                >
+                  POINT
+                </th>
+              </tr>
+            </thead>
+            <tbody />
+          </table>
+        </ForwardRef>
+      </div>
+    </styled.div>
+  </TableItem>
+</LeaderboardTable>
+`;

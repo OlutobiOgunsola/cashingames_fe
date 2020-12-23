@@ -39,10 +39,10 @@ const TableItem = (props) => {
     }, [data, headers])
 
     return (
-        <Container>
+        <Container id="table-container">
             {tableError && (
                 <>
-                    <p>Error in table data props</p>
+                    <p id="error-note">Error in table data props</p>
                 </>
             )}
             {!tableError && (
@@ -51,7 +51,11 @@ const TableItem = (props) => {
                         <tr>
                             {headers &&
                                 headers.map((header, idx) => {
-                                    return <th key={idx}>{header}</th>
+                                    return (
+                                        <th className="table-header" key={idx}>
+                                            {header}
+                                        </th>
+                                    )
                                 })}
                         </tr>
                     </thead>
@@ -60,7 +64,7 @@ const TableItem = (props) => {
                             data.map((dat, idx) => {
                                 const properties = getPropertiesFromObject(dat)
                                 return (
-                                    <tr key={idx}>
+                                    <tr key={idx} className="table-row">
                                         <td>
                                             <Img
                                                 className="face-icon"

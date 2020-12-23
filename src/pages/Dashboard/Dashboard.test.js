@@ -50,6 +50,8 @@ describe('Cashingames dashboard', () => {
             </ThemeProvider>
         )
         expect(DashWrapper.find('h1').text()).toBe('Dashboard')
+
+        DashWrapper.unmount()
     })
 
     it('should render a main body', () => {
@@ -59,40 +61,21 @@ describe('Cashingames dashboard', () => {
             </ThemeProvider>
         )
         expect(DashWrapper.find('main')).toBeTruthy()
+        DashWrapper.unmount()
     })
 
-    it('getUser should make api call', () => {
-        mockAxios.get.mockResolvedValue([
-            {
-                data: {
-                    message: 'success',
-                    data: {
-                        userObject: {
-                            id: 1,
-                            username: 'oliver_queen',
-                        },
-                    },
-                },
-            },
-        ])
+    it('should render with default props', () => {
+        jest.spyOn(React, 'useEffect').mockImplementationOnce((f) => f())
 
-        const setUser = jest.fn()
-
+        expect.assertions(2)
         const DashWrapper = mount(
             <ThemeProvider theme={Theme}>
                 <Dashboard />
             </ThemeProvider>
         )
-        const updateState = jest.spyOn(React, 'useState')
 
-        updateState.mockImplementation((user) => [user, setUser])
-
-        expect(setUser).toHaveBeenCalled()
+        expect(DashWrapper.find('#inner-circle-wallet').text()).toBe('NGN 0')
+        expect(DashWrapper.find('#inner-circle-rank').text()).toBe('0')
+        DashWrapper.unmount()
     })
-
-    it.todo('should render username correctly')
-    // it.todo('should render username correctly')
-    // it.todo('should render username correctly')
-    // it.todo('should render username correctly')
-    // it.todo('should render username correctly')
 })

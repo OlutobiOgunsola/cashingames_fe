@@ -28,12 +28,22 @@ const DashboardHero = styled.div`
     height: 10em;
     background: ${(props) => props.theme.colors.primary};
     box-sizing: border-box;
+
+    @media (max-width: 700px) {
+        height: 3em;
+    }
+
     .dashboard-heading {
         font-size: 2.025em;
         font-family: 'Roboto', 'Arial';
         line-height: 42px;
         font-weight: 400;
         color: white;
+        @media (max-width: 700px) {
+            font-size: 1em;
+            width: 100%;
+            text-align: center;
+        }
     }
 
     .options {
@@ -46,6 +56,9 @@ const DashboardHero = styled.div`
             )}
         width: 660px;
         height: 50px;
+        @media (max-width: 900px) {
+            display: none;
+        }
     }
 `
 
@@ -97,29 +110,51 @@ const Main = styled.main`
     ${(props) =>
         props.theme.mixins.flexMixin('row', 'nowrap', 'space-between')};
     width: 100%;
-    height: 476px;
+    height: auto;
     #wallet-and-active-plan {
         width: 700px;
         height: 100%;
-        /* background: #fafceb; */
+        margin-bottom: 1rem;
+
+        @media (max-width: 900px) {
+            width: 700px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 700px) {
+            width: 100%;
+        }
     }
 
     #wallet {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
         border-radius: 25px;
         background: #fafceb;
-        width: 700px;
+        width: 100%;
         height: 160px;
         padding: 1rem 0.5rem;
         box-sizing: border-box;
+        margin-bottom: 1rem;
         ${(props) => props.theme.mixins.flexMixin('row', 'nowrap')}
 
         .circle {
-            width: 300px;
-            height: 300px;
             margin: 0 1rem;
             box-sizing: border-box;
             ${(props) => props.theme.mixins.flexMixin('column', 'nowrap')}
+            @media(max-width: 500px) {
+                margin: 0 0.25rem;
+                ${(props) => props.theme.mixins.flexMixin('row', 'nowrap')}
+            }
+        }
+
+        #circle-rank {
+            @media (max-width: 500px) {
+                margin: 0 0.25rem;
+                ${(props) =>
+                    props.theme.mixins.flexMixin('row-reverse', 'nowrap')}
+            }
+            border-left: solid 1px rgba(0, 0, 0, 0.2);
         }
 
         .inner-circle {
@@ -135,6 +170,19 @@ const Main = styled.main`
             font-size: 0.75rem;
             font-weight: 700;
             line-height: 112px;
+
+            @media (max-width: 700px) {
+                height: 96px;
+                width: 96px;
+                line-height: 86px;
+                margin: 0rem 2rem;
+            }
+            @media (max-width: 500px) {
+                height: 80px;
+                width: 80px;
+                line-height: 60px;
+                margin: 0rem -0.5rem;
+            }
         }
         .undernote {
             text-align: center;
@@ -144,6 +192,11 @@ const Main = styled.main`
             width: 100%;
             display: block;
             margin-top: 0.5rem;
+            @media (max-width: 500px) {
+                margin: 0rem 0.5rem;
+                width: 40px;
+                font-size: 0.5rem;
+            }
         }
 
         #inner-circle-rank {
@@ -161,6 +214,8 @@ const Main = styled.main`
         background: #f9f9f9;
         padding: 1rem;
         box-sizing: border-box;
+        border-radius: 10px;
+        margin-bottom: 1rem;
 
         #plan-header {
             padding: 1rem 0.5rem;
@@ -168,6 +223,15 @@ const Main = styled.main`
             font-weight: 700;
             color: #949292;
             border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+            @media (max-width: 700px) {
+                font-size: 1.75rem;
+            }
+            @media (max-width: 500px) {
+                width: 100%;
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
         }
     }
 
@@ -176,6 +240,9 @@ const Main = styled.main`
         height: 476px;
         background: #fbfbfb;
         margin-left: 24px;
+        @media (max-width: 900px) {
+            display: none;
+        }
     }
 
     #plan-list {
@@ -190,6 +257,10 @@ const Main = styled.main`
         list-style-type: none;
         text-decoration: none;
         margin-top: 0.5rem;
+
+        @media (max-width: 500px) {
+            width: 100%;
+        }
         .plan-head {
             width: 70%;
             margin: 0;
@@ -261,16 +332,34 @@ const Main = styled.main`
                 'space-between',
                 'center'
             )}
+        @media(max-width: 560px) {
+            ${(props) =>
+                props.theme.mixins.flexMixin(
+                    'column',
+                    'nowrap',
+                    'space-between',
+                    'center'
+                )}
+        }
     }
 
     #available {
         width: 50%;
+
+        @media (max-width: 500px) {
+            width: 100%;
+        }
     }
 
     #play-button {
         border-left: solid 1px rgba(0, 0, 0, 0.1);
         width: 50%;
         ${(props) => props.theme.mixins.flexMixin('row', 'nowrap')}
+        margin: 1rem auto;
+        @media (max-width: 500px) {
+            width: 100%;
+            border-left: none;
+        }
     }
 
     #play {
@@ -281,6 +370,9 @@ const Main = styled.main`
         border: none;
         width: 198px;
         height: 75px;
+        @media (max-width: 500px) {
+            width: 100%;
+        }
     }
 
     #podium {
@@ -334,7 +426,7 @@ const Dashboard = (props) => {
         rank: 0,
     })
 
-    useEffect(() => {
+    React.useEffect(() => {
         // get leaderboard
 
         const leaderboard = getLeaderBoard()
@@ -356,7 +448,7 @@ const Dashboard = (props) => {
 
         const user = getUser(USER_ID, token)
         user.then((res) => {
-            console.log(res.data.data.userObject)
+            console.log(res)
             setUser(res.data.data.userObject)
         }).catch((err) => {
             console.log(err)
@@ -370,7 +462,7 @@ const Dashboard = (props) => {
 
     return (
         <Container className="body-container">
-            <Header />
+            <Header username={user.username} />
             <DashboardHero>
                 <h1 className="dashboard-heading">Dashboard</h1>
                 <div className="options">
@@ -395,7 +487,9 @@ const Dashboard = (props) => {
                                 className="inner-circle"
                                 id="inner-circle-wallet"
                             >
-                                {user ? `NGN ${user.wallet_balance}` : 0}
+                                {user.username
+                                    ? `NGN ${user.wallet_balance}`
+                                    : `NGN 0`}
                             </span>
                             <span className="undernote">WALLET</span>
                         </div>
@@ -404,7 +498,7 @@ const Dashboard = (props) => {
                                 className="inner-circle"
                                 id="inner-circle-rank"
                             >
-                                {user ? user.rank : 0}
+                                {user.username ? user.rank : 0}
                             </span>
                             <span className="undernote">RANK</span>
                         </div>
@@ -452,7 +546,7 @@ const Dashboard = (props) => {
                         <div className="podium-circle" id="podium-2">
                             <span className="podium-main">2</span>
                             <span className="podium-text">
-                                {leaderboard.length > 0
+                                {leaderboard && leaderboard.length > 0
                                     ? leaderboard[1].name
                                     : ''}
                             </span>
