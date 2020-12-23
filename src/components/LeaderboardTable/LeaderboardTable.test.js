@@ -11,6 +11,7 @@ describe('Leaderboard component', () => {
         )
 
         expect(toJSON(LWrapper)).toMatchSnapshot()
+        LWrapper.unmount()
     })
     it('renders a table', () => {
         const data = [
@@ -31,6 +32,8 @@ describe('Leaderboard component', () => {
         )
 
         expect(LWrapper.find('#table-container')).toBeTruthy()
+
+        LWrapper.unmount()
     })
     it('should render child with data props', () => {})
 })

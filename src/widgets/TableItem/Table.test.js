@@ -10,6 +10,8 @@ describe('Table item', () => {
         const TableWrapper = mount(<Table data={data} headers={headers} />)
 
         expect(TableWrapper.find('table')).toBeTruthy()
+
+        TableWrapper.unmount()
     })
 
     it('renders an error paragraph if headers lenght !== table row data length', () => {
@@ -30,6 +32,8 @@ describe('Table item', () => {
 
         const TableWrapper = mount(<Table data={data} headers={headers} />)
         expect(TableWrapper.find('#error-note')).toBeTruthy()
+
+        TableWrapper.unmount()
     })
 
     it('should render all headers and rows', () => {
@@ -44,5 +48,6 @@ describe('Table item', () => {
 
         expect(TableWrapper.find('.table-header')).toHaveLength(2)
         expect(TableWrapper.find('.table-row')).toHaveLength(3)
+        TableWrapper.unmount()
     })
 })

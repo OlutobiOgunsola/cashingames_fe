@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { keyframes, withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -8,7 +8,6 @@ import { freezeScroll, unfreezeScroll } from '../../utils/helpers'
 import Logo from '../../assets/images/Logo.png'
 import Notification from '../../assets/svgs/Notification.svg'
 import ModalUSER from '../../assets/images/ModalUSER.png'
-import User from '../../assets/images/User.png'
 import Hamburger from '../../assets/svgs/Hamburger.svg'
 
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -189,7 +188,7 @@ const Header = (props) => {
     const username = props.username
 
     const toggleModal = () => {
-        if (modal) {
+        if (!modal) {
             freezeScroll()
         } else {
             unfreezeScroll()
@@ -205,7 +204,7 @@ const Header = (props) => {
                             <span className="profile-img-sm">
                                 <img
                                     src={ModalUSER}
-                                    alt="profile image"
+                                    alt="profile"
                                     id="modal-profile"
                                 />
                                 <p className="username" id="modal-username">
@@ -256,6 +255,7 @@ const Header = (props) => {
 
 Header.propTypes = {
     isLoggedIn: PropTypes.bool,
+    username: PropTypes.string,
 }
 
 export default withTheme(Header)

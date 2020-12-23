@@ -2,8 +2,6 @@ import axios from 'axios'
 import moxios from 'moxios'
 import { getUser } from '../utils/queries'
 
-const mockAxios = jest.genMockFromModule('axios')
-
 describe('getUser query', () => {
     beforeEach(() => {
         moxios.install()

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled, { withTheme } from 'styled-components'
 import Header from '../../widgets/Header'
 import { getUser, getLeaderBoard } from '../../utils/queries'
@@ -360,6 +360,10 @@ const Main = styled.main`
             width: 100%;
             border-left: none;
         }
+
+        &:focus {
+            outline: none;
+        }
     }
 
     #play {
@@ -418,7 +422,6 @@ const Main = styled.main`
 `
 
 const Dashboard = (props) => {
-    const [isLoading, setLoading] = useState(false)
     const [leaderboard, setLeaderboard] = useState([])
     const [user, setUser] = useState({
         username: '',
@@ -468,16 +471,16 @@ const Dashboard = (props) => {
                 <div className="options">
                     <Option id="buy-lives">
                         BUY LIVES
-                        <img className="arrow-icon" src={ArrowIcon} />
+                        <img className="arrow-icon" alt="" src={ArrowIcon} />
                     </Option>
                     <Option id="top-wallet">
                         TOP WALLET
-                        <img className="arrow-icon" src={ArrowIcon} />
+                        <img className="arrow-icon" alt="" src={ArrowIcon} />
                     </Option>
                 </div>
             </DashboardHero>
             <Strip>
-                <img id="home-icon" src={HomeIcon} />
+                <img id="home-icon" alt="" src={HomeIcon} />
             </Strip>
             <Main>
                 <section id="wallet-and-active-plan">
@@ -553,7 +556,11 @@ const Dashboard = (props) => {
                         </div>
                         <div className="podium-circle" id="podium-1">
                             <span className="podium-main">
-                                <img src={WinnersIcon} id="winners-icon" />
+                                <img
+                                    src={WinnersIcon}
+                                    alt=""
+                                    id="winners-icon"
+                                />
                             </span>
                             <span className="podium-text">
                                 {leaderboard.length > 0

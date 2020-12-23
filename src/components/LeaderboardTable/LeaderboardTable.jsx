@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import React from 'react'
 import PropTypes from 'prop-types'
 import TableItem from '../../widgets/TableItem'
 
@@ -7,7 +6,7 @@ const LeaderboardTable = (props) => {
     const data = props.data
 
     const headers = ['POSITION', 'NAME', 'POINT']
-    
+
     return <TableItem data={data} headers={headers} />
 }
 
